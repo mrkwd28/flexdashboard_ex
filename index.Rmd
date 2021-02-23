@@ -1,0 +1,54 @@
+---
+title: "Maeda Stats"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(htmlwidgets)
+library(DT)
+library(baseballr)
+
+#install.packages("devtools")
+#devtools::install_github("BillPetti/baseballr")
+```
+
+Column {data-width=750}
+-----------------------------------------------------------------------
+
+### 2020 Regular Season
+
+```{r}
+maeda_stats = scrape_statcast_savant(start_date = "2020-07-23",  end_date = "2020-09-27", player_type = "pitcher", playerid = 628317)
+
+#maeda_stats
+
+#renderDataTable({
+#   DT::datatable(maeda_stats)
+#})
+
+datatable(maeda_stats)
+
+
+
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
